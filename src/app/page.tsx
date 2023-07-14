@@ -1,10 +1,10 @@
-import './global.css';
+import '@/styles/global.css';
 
 export default function Home() {
   return (
     <main
       style={{
-        backgroundImage: 'url(home-background.png)',
+        backgroundImage: 'url(images/home-background.png)',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
