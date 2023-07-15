@@ -1,3 +1,5 @@
+import '@/styles/global.css';
+
 import ThemeRegistry from '@/styles/theme-register';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
