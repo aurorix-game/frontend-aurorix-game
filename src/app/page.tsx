@@ -1,5 +1,6 @@
 import classes from '@/app/styles.module.css';
 import { Button, Grid } from '@mui/material';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -30,13 +31,15 @@ export default function Home() {
               extraordinária, onde você será o mestre das criaturas mágicas.
               Explore vastas terras desconhecidas.”
             </p>
-            <Button
-              className={classes.btnPlayNow}
-              variant="contained"
-              disableElevation
-            >
-              Play now!
-            </Button>
+            <Link href="/login">
+              <Button
+                className={classes.btnPlayNow}
+                variant="contained"
+                disableElevation
+              >
+                Play now!
+              </Button>
+            </Link>
           </Grid>
         </Grid>
       </div>

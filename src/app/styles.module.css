@@ -7,7 +7,7 @@
 }
 
 .blur {
-  background: rgba(65, 27, 68, 0.6);
+  background: linear-gradient(to right bottom, black, rgba(65, 27, 68, 0.4), rgba(212, 60, 3, 0.4), black);
   backdrop-filter: blur(0.5vh);
   height: 100vh;
 }
