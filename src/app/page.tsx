@@ -1,11 +1,7 @@
-'use client';
-
-import { useStyles } from '@/app/page.styles';
+import classes from '@/app/styles.module.css';
 import { Button, Grid } from '@mui/material';
 
 export default function Home() {
-  const classes = useStyles();
-
   return (
     <main className={classes.main}>
       <div className={classes.blur}>
@@ -23,7 +19,7 @@ export default function Home() {
               alt="logo aurorix"
             />
           </Grid>
-          <Grid className={classes.gridMessages} md={6}>
+          <Grid item md={6} className={classes.gridMessages}>
             <h1 className={classes.title}>
               Aventuras, criaturas e evolução.{' '}
               <span className={classes.aurorix}>Aurorix</span>

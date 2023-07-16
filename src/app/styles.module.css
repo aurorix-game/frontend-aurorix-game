@@ -1,0 +1,70 @@
+.main {
+  background-image: url("../../public/images/home-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.blur {
+  background: rgba(65, 27, 68, 0.6);
+  backdrop-filter: blur(0.5vh);
+  height: 100vh;
+}
+
+.gridMain {
+  height: 100vh
+}
+
+.logo {
+  width: 70%;
+  margin-bottom: 10vh;
+  transition: 3s;
+}
+
+.logo:hover {
+  rotate: -3deg;
+}
+
+.title {
+  font-family: 'Pixellari', sans-serif;
+  color: white;
+  font-weight: normal;
+  font-size: 3em;
+  width: 70%;
+  line-height: 1
+}
+
+.gridMessages {
+  height: 45%
+}
+
+.aurorix {
+  color: #00DFA2
+}
+
+.text {
+  font-family: 'PixelOperatorHB', sans-serif;
+  color: white;
+  font-size: 1.3em;
+  width: 75%;
+  line-height: 1.5,
+}
+
+.btnPlayNow {
+  margin-top: 2vh !important;
+  background-color: #DF5D50 !important;
+  border-radius: 0 !important;
+  font-family: 'Pixellari', sans-serif !important;
+  font-size: 3.2em !important;
+  padding: 0.7em 0.3em 0.55em !important;
+  line-height: 0 !important;
+  letter-spacing: 0 !important;
+  transition: 0.5s !important;
+}
+
+.btnPlayNow:hover {
+  transition: 0.5s !important;
+  font-size: 3.5em !important;
+  background-color:#00DFA2 !important;
+}
