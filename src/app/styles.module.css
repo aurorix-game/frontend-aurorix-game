@@ -1,5 +1,5 @@
 .main {
-  background-image: url("../../public/images/home-background.png");
+  background-image: url('../../public/images/home-background.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -7,19 +7,38 @@
 }
 
 .blur {
-  background: linear-gradient(to right bottom, black, rgba(65, 27, 68, 0.4), rgba(212, 60, 3, 0.4), black);
+  background: linear-gradient(to right bottom,
+      rgb(24, 13, 44),
+      rgba(65, 27, 68, 0.5),
+      rgba(212, 60, 3, 0.45),
+      rgb(51, 8, 5));
   backdrop-filter: blur(0.5vh);
   height: 100vh;
 }
 
 .gridMain {
-  height: 100vh
+  height: 100vh;
+}
+
+@keyframes LogoAnimation {
+  0% {
+    margin-top: 0px;
+  }
+
+  50% {
+    margin-top: 40px;
+  }
+
+  100% {
+    margin-top: 0px;
+  }
 }
 
 .logo {
   width: 70%;
   margin-bottom: 10vh;
   transition: 3s;
+  animation: LogoAnimation 2.3s infinite cubic-bezier(1, 1, 1, 1);
 }
 
 .logo:hover {
@@ -32,15 +51,15 @@
   font-weight: normal;
   font-size: 3em;
   width: 70%;
-  line-height: 1
+  line-height: 1;
 }
 
 .gridMessages {
-  height: 45%
+  height: 45%;
 }
 
 .aurorix {
-  color: #00DFA2
+  color: #00dfa2;
 }
 
 .text {
@@ -48,12 +67,12 @@
   color: white;
   font-size: 1.3em;
   width: 75%;
-  line-height: 1.5,
+  line-height: 1.5;
 }
 
 .btnPlayNow {
   margin-top: 2vh !important;
-  background-color: #DF5D50 !important;
+  background-color: #df5d50 !important;
   border-radius: 0 !important;
   font-family: 'Pixellari', sans-serif !important;
   font-size: 3.2em !important;
@@ -65,6 +84,5 @@
 
 .btnPlayNow:hover {
   transition: 0.5s !important;
-  font-size: 3.5em !important;
-  background-color:#00DFA2 !important;
+  background-color: #00dfa2 !important;
 }
