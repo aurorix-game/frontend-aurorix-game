@@ -1,0 +1,8 @@
+.main {
+  background-color: #411B44;
+  background-image: url('../../../public/images/pixel-pattern.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}

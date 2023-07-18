@@ -39,6 +39,10 @@
   margin-bottom: 10vh;
   transition: 3s;
   animation: LogoAnimation 2.3s infinite cubic-bezier(1, 1, 1, 1);
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
 }
 
 .logo:hover {

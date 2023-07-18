@@ -22,14 +22,14 @@ export default function Home() {
           </Grid>
           <Grid item md={6} className={classes.gridMessages}>
             <h1 className={classes.title}>
-              Aventuras, criaturas e evolução.{' '}
+              Adventures, creatures and evolution.{' '}
               <span className={classes.aurorix}>Aurorix</span>
             </h1>
             <p className={classes.text}>
-              “Descubra terras de maravilhas e mistérios em um jogo épico de
-              aventura, captura de criaturas e evolução. Uma jornada
-              extraordinária, onde você será o mestre das criaturas mágicas.
-              Explore vastas terras desconhecidas.”
+              “Discover lands of wonder and mystery in an epic game of
+              adventure, creature capture and evolution. a journey
+              extraordinary, where you will be the master of magical creatures.
+              Explore vast uncharted lands.”
             </p>
             <Link href="/login">
               <Button

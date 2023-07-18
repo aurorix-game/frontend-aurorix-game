@@ -6,12 +6,12 @@ body {
   font-family: 'Pixellari';
   src: url('../../public/fonts/Pixellari.ttf');
   font-weight: normal;
-  font-style: normal; 
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'PixelOperatorHB';
   src: url('../../public/fonts/PixelOperatorHB.ttf');
   font-weight: normal;
-  font-style: normal; 
+  font-style: normal;
 }
