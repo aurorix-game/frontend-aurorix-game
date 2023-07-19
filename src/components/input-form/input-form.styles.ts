@@ -2,6 +2,9 @@ import { Theme } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 export const useStyles = makeStyles((theme: Theme) => ({
+  inputGroup: {
+    margin: '5px 0',
+  },
   label: {
     color: 'white',
     fontFamily: theme.fonts.PixelOperatorSC,

@@ -20,8 +20,8 @@ export function CardLogo(params: Params) {
       />
       <div
         style={{
-          height: params.card.width,
-          width: params.card.height,
+          height: params.card.height,
+          width: params.card.width,
           backgroundColor: '#301432',
           padding: 10,
           border: `solid 0.8vh #00DFA2`,
