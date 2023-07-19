@@ -10,11 +10,12 @@ export type ColorOptions = {
 };
 
 export type Colors = {
-  greenNeon: string;
+  greenNeon: ColorOptions;
   orangeRed: ColorOptions;
-  redNeon: string;
-  orangeYellow: string;
-  redOrangePastel: string;
-  purpleDark: string;
-  blueOcean: string;
+  redNeon: ColorOptions;
+  orangeYellow: ColorOptions;
+  redOrangePastel: ColorOptions;
+  purpleDark: ColorOptions;
+  blueOcean: ColorOptions;
+  tealishBlue: ColorOptions;
 };

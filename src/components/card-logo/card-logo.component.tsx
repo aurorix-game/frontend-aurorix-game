@@ -1,5 +1,9 @@
 type Params = {
   children: React.ReactNode;
+  card: {
+    width: string;
+    height: string;
+  };
 };
 
 export function CardLogo(params: Params) {
@@ -16,18 +20,17 @@ export function CardLogo(params: Params) {
       />
       <div
         style={{
-          height: '50vh',
-          width: '45vh',
+          height: params.card.width,
+          width: params.card.height,
           backgroundColor: '#301432',
           padding: 10,
-          border: 'solid 0.8vh #00DFA2',
+          border: `solid 0.8vh #00DFA2`,
         }}
       >
         <div
           style={{
             marginTop: '11vh',
             height: '75%',
-            // backgroundColor: 'white',
           }}
         >
           {params.children}

@@ -1,4 +1,3 @@
-import { Button } from '@/components/button';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,9 +5,5 @@ export const metadata: Metadata = {
 };
 
 export default function Register() {
-  return (
-    <div>
-      <Button></Button>
-    </div>
-  );
+  return <div></div>;
 }
