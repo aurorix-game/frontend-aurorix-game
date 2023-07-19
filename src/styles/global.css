@@ -2,6 +2,18 @@ body {
   margin: 0;
 }
 
+textarea,
+input {
+  outline: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
 @font-face {
   font-family: 'Pixellari';
   src: url('../../public/fonts/Pixellari.ttf');
@@ -12,6 +24,13 @@ body {
 @font-face {
   font-family: 'PixelOperatorHB';
   src: url('../../public/fonts/PixelOperatorHB.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PixelOperatorSC';
+  src: url('../../public/fonts/PixelOperatorSC.ttf');
   font-weight: normal;
   font-style: normal;
 }

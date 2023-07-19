@@ -11,6 +11,7 @@ export function CardLogo(params: Params) {
         style={{
           position: 'absolute',
           height: '22vh',
+          top: '15vh',
         }}
       />
       <div
@@ -26,7 +27,7 @@ export function CardLogo(params: Params) {
           style={{
             marginTop: '11vh',
             height: '75%',
-            backgroundColor: 'white',
+            // backgroundColor: 'white',
           }}
         >
           {params.children}
