@@ -1,8 +1,9 @@
 import { createTheme } from '@mui/material';
+import { Color } from './color.enum';
 
 export const theme = createTheme({
   colors: {
-    greenNeon: {
+    [Color.greenNeon]: {
       original: {
         hex: '#00DFA2',
       },
@@ -34,9 +35,12 @@ export const theme = createTheme({
         hex: '#FFC3AB',
       },
     },
-    purpleDark: {
+    [Color.purpleDark]: {
       original: {
         hex: '#411B44',
+      },
+      dark: {
+        hex: '#301432',
       },
     },
     blueOcean: {

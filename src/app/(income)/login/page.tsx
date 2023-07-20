@@ -1,7 +1,14 @@
 'use client';
 
-import { Button, CardLogo, Checkbox, InputForm, Metadata } from '@/components';
-import { theme } from '@/styles/theme';
+import {
+  Button,
+  CardLogo,
+  Checkbox,
+  InputForm,
+  Link,
+  Metadata,
+} from '@/components';
+import { theme } from '@/config';
 import { Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -41,7 +48,7 @@ export default function Login() {
         justifyContent="center"
         style={{ height: '100vh' }}
       >
-        <CardLogo card={{ width: '45vh', height: '52vh' }}>
+        <CardLogo card={{ width: '45vh', height: '54vh' }}>
           <Grid container alignItems="center" justifyContent="center">
             <Grid item justifyContent="center" style={{ width: '70%' }}>
               <form onSubmit={formik.handleSubmit}>
@@ -85,6 +92,13 @@ export default function Login() {
                   />
                 </Grid>
               </form>
+            </Grid>
+            <Grid container justifyContent="center">
+              <Link
+                path="reset-password"
+                label="Reset password"
+                // color={Color.blueOcean}
+              />
             </Grid>
           </Grid>
         </CardLogo>

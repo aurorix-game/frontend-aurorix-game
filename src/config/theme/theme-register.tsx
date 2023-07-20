@@ -1,5 +1,5 @@
 'use client';
-import { theme } from '@/styles/theme';
+import { theme } from '@/config';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider } from '@mui/material';

@@ -1,3 +1,6 @@
+import { theme } from '@/config';
+import { Grid } from '@mui/material';
+
 type Params = {
   children: React.ReactNode;
   card: {
@@ -22,19 +25,15 @@ export function CardLogo(params: Params) {
         style={{
           height: params.card.height,
           width: params.card.width,
-          backgroundColor: '#301432',
+          backgroundColor: theme.colors.purpleDark.dark?.hex,
           padding: 10,
-          border: `solid 0.8vh #00DFA2`,
+          border: `solid 0.8vh ${theme.colors.greenNeon.original.hex}`,
         }}
       >
-        <div
-          style={{
-            marginTop: '11vh',
-            height: '75%',
-          }}
-        >
+        <Grid container style={{ height: '20%' }} />
+        <Grid container style={{ height: '75%' }}>
           {params.children}
-        </div>
+        </Grid>
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import { theme } from '@/styles/theme';
+import { theme } from '@/config';
 import { Checkbox as CheckboxMUI, FormControlLabel } from '@mui/material';
 import { ChangeEventHandler } from 'react';
 

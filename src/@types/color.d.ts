@@ -1,3 +1,5 @@
+import { Color } from '@/config';
+
 export type ColorTypes = {
   hex: string;
   rgba?: string;
@@ -10,12 +12,12 @@ export type ColorOptions = {
 };
 
 export type Colors = {
-  greenNeon: ColorOptions;
-  orangeRed: ColorOptions;
-  redNeon: ColorOptions;
-  orangeYellow: ColorOptions;
-  redOrangePastel: ColorOptions;
-  purpleDark: ColorOptions;
-  blueOcean: ColorOptions;
-  tealishBlue: ColorOptions;
+  [Color.greenNeon]: ColorOptions;
+  [Color.orangeRed]: ColorOptions;
+  [Color.redNeon]: ColorOptions;
+  [Color.orangeYellow]: ColorOptions;
+  [Color.redOrangePastel]: ColorOptions;
+  [Color.purpleDark]: ColorOptions;
+  [Color.blueOcean]: ColorOptions;
+  [Color.tealishBlue]: ColorOptions;
 };

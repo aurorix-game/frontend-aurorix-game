@@ -1,5 +1,6 @@
+import ThemeRegistry from '@/config/theme/theme-register';
+import '@/styles/fonts.css';
 import '@/styles/global.css';
-import ThemeRegistry from '@/styles/theme-register';
 
 import type { Metadata } from 'next';
 
