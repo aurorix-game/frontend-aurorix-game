@@ -1,7 +1,8 @@
 'use client';
 
-import { CardLogo, InputForm, Metadata } from '@/components';
-import { Checkbox, FormControlLabel, Grid } from '@mui/material';
+import { Button, CardLogo, Checkbox, InputForm, Metadata } from '@/components';
+import { theme } from '@/styles/theme';
+import { Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -20,7 +21,7 @@ const schema = Yup.object().shape({
 
 export default function Login() {
   const formik = useFormik({
-    initialValues: { email: '', password: '' },
+    initialValues: { email: '', password: '', remember: false },
     validationSchema: schema,
     validateOnChange: false,
     onSubmit: handleSubmit,
@@ -28,7 +29,7 @@ export default function Login() {
 
   function handleSubmit(values: FormData) {
     if (formik.isValid) {
-      // TODO: call login
+      console.log(values);
     }
   }
 
@@ -62,22 +63,13 @@ export default function Login() {
                   value={formik.values.password}
                   error={formik?.errors?.password}
                 />
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      style={{
-                        color: 'red',
-                      }}
-                      disableRipple
-                    />
-                  }
-                  label={
-                    <span
-                      style={{ fontFamily: 'PixelOperatorSC', color: 'white' }}
-                    >
-                      Remember-me
-                    </span>
-                  }
+                <Checkbox
+                  name="remember"
+                  label="Remember-me"
+                  onChange={formik.handleChange}
+                  value={formik.values.remember}
+                  labelColor="white"
+                  checkboxColor={theme.colors.redNeon.original.hex}
                 />
                 <Grid
                   container
@@ -85,9 +77,12 @@ export default function Login() {
                   alignItems="center"
                   style={{ height: '8vh' }}
                 >
-                  <button type="submit" style={{ padding: 10 }}>
-                    Send
-                  </button>
+                  <Button
+                    label="login"
+                    type="submit"
+                    // loading={{ status: true, size: 20 }}
+                    buttonStyle={{ fontSize: '3vh', height: '45%' }}
+                  />
                 </Grid>
               </form>
             </Grid>

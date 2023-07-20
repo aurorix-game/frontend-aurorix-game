@@ -8,7 +8,7 @@ type Params = {
   value?: string;
   type: HTMLInputTypeAttribute;
   error?: string;
-  onChange?: ChangeEventHandler | any;
+  onChange?: ChangeEventHandler;
 };
 
 export function InputForm(params: Params) {

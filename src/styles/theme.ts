@@ -20,6 +20,9 @@ export const theme = createTheme({
       original: {
         hex: '#FF0060',
       },
+      dark: {
+        hex: '#a6003e',
+      },
     },
     orangeYellow: {
       original: {
