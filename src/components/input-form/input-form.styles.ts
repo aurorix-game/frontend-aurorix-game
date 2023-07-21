@@ -18,6 +18,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
     fontSize: '1.5em',
     border: `solid 0.4vh ${theme.colors.tealishBlue.original.hex}`,
     fontFamily: theme.fonts.PixelOperatorSC,
+    transition: 'ease-out 300ms',
+    '&:focus': {
+      border: `solid 0.4vh ${theme.colors.orangeYellow?.dark?.hex}`,
+    },
   },
   error: {
     color: theme.colors.redNeon.original.hex,
