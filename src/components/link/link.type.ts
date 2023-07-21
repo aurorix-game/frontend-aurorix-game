@@ -1,4 +1,4 @@
-import { Color } from '@/config';
+import { Color } from '@/interfaces';
 
 export type ParamsLink = {
   path: string;
