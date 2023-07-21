@@ -3,7 +3,7 @@
 import { Button, CardLogo, InputForm, Metadata } from '@/components';
 import { metadata } from '@/config';
 import { Color, MetadataId } from '@/interfaces';
-import { Grid } from '@mui/material';
+import { Fade, Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
 import * as Yup from 'yup';
@@ -50,84 +50,86 @@ export default function Register() {
   }
 
   return (
-    <Metadata id={MetadataId.register}>
-      <Grid
-        container
-        alignItems="center"
-        justifyContent="center"
-        flexDirection="column"
-        style={{ height: '100vh' }}
-      >
-        <Grid container item justifyContent="center">
-          <CardLogo card={{ width: '45vh' }}>
-            <Grid container alignItems="center" justifyContent="center">
-              <Grid item justifyContent="center" style={{ width: '70%' }}>
-                <form onSubmit={formik.handleSubmit}>
-                  <InputForm
-                    label="nickname"
-                    name="nickname"
-                    type="text"
-                    placeHolder="super-blaster"
-                    onChange={formik.handleChange}
-                    value={formik.values.nickname}
-                    error={formik?.errors?.nickname}
-                  />
-                  <InputForm
-                    label="email"
-                    name="email"
-                    type="email"
-                    placeHolder="super-blaster@email.com"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                    error={formik?.errors?.email}
-                  />
-                  <InputForm
-                    label="password"
-                    name="password"
-                    type="password"
-                    placeHolder="*********"
-                    onChange={formik.handleChange}
-                    value={formik.values.password}
-                    error={formik?.errors?.password}
-                  />
-                  <InputForm
-                    label="confirm password"
-                    name="confirmPassword"
-                    type="password"
-                    placeHolder="*********"
-                    onChange={formik.handleChange}
-                    value={formik.values.confirmPassword}
-                    error={formik?.errors?.confirmPassword}
-                  />
-                  <Grid
-                    container
-                    justifyContent="center"
-                    alignItems="center"
-                    style={{ height: '8vh' }}
-                  >
-                    <Button
-                      label="register"
-                      type="submit"
-                      font={{ size: '3vh' }}
-                      button={{ color: Color.greenNeon, height: '45%' }}
-                      // loading={{ status: true, size: 20 }}
+    <Metadata id={MetadataId.register} noSSR>
+      <Fade in={true}>
+        <Grid
+          container
+          alignItems="center"
+          justifyContent="center"
+          flexDirection="column"
+          style={{ height: '100vh' }}
+        >
+          <Grid container item justifyContent="center">
+            <CardLogo card={{ width: '45vh' }}>
+              <Grid container alignItems="center" justifyContent="center">
+                <Grid item justifyContent="center" style={{ width: '70%' }}>
+                  <form onSubmit={formik.handleSubmit}>
+                    <InputForm
+                      label="nickname"
+                      name="nickname"
+                      type="text"
+                      placeHolder="super-blaster"
+                      onChange={formik.handleChange}
+                      value={formik.values.nickname}
+                      error={formik?.errors?.nickname}
                     />
-                  </Grid>
-                </form>
+                    <InputForm
+                      label="email"
+                      name="email"
+                      type="email"
+                      placeHolder="super-blaster@email.com"
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
+                      error={formik?.errors?.email}
+                    />
+                    <InputForm
+                      label="password"
+                      name="password"
+                      type="password"
+                      placeHolder="*********"
+                      onChange={formik.handleChange}
+                      value={formik.values.password}
+                      error={formik?.errors?.password}
+                    />
+                    <InputForm
+                      label="confirm password"
+                      name="confirmPassword"
+                      type="password"
+                      placeHolder="*********"
+                      onChange={formik.handleChange}
+                      value={formik.values.confirmPassword}
+                      error={formik?.errors?.confirmPassword}
+                    />
+                    <Grid
+                      container
+                      justifyContent="center"
+                      alignItems="center"
+                      style={{ height: '8vh' }}
+                    >
+                      <Button
+                        label="register"
+                        type="submit"
+                        font={{ size: '3vh' }}
+                        button={{ color: Color.greenNeon, height: '45%' }}
+                        // loading={{ status: true, size: 20 }}
+                      />
+                    </Grid>
+                  </form>
+                </Grid>
               </Grid>
-            </Grid>
-          </CardLogo>
+            </CardLogo>
+          </Grid>
+          <Grid item justifyContent="center">
+            <Button
+              label="login"
+              type="button"
+              font={{ size: '2vh' }}
+              button={{ color: Color.redNeon, height: '80%' }}
+              onClick={() => router.push(metadata[MetadataId.login].path)}
+            />
+          </Grid>
         </Grid>
-        <Grid item justifyContent="center">
-          <Button
-            label="login"
-            type="button"
-            font={{ size: '2vh' }}
-            button={{ color: Color.redNeon, height: '80%' }}
-            onClick={() => router.push(metadata[MetadataId.login].path)}
-          />
-        </Grid>
-      </Grid>
+      </Fade>
     </Metadata>
   );
 }

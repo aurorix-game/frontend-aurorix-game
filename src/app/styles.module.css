@@ -35,7 +35,7 @@
 }
 
 .logo {
-  width: 70%;
+  height: 70vh;
   margin-bottom: 10vh;
   transition: 3s;
   animation: LogoAnimation 2.3s infinite cubic-bezier(1, 1, 1, 1);

@@ -46,7 +46,7 @@ export default function Login() {
   }
 
   return (
-    <Metadata id={MetadataId.login}>
+    <Metadata id={MetadataId.login} noSSR>
       <Grid
         container
         alignItems="center"

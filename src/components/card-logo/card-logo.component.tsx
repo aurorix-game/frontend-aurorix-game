@@ -1,5 +1,5 @@
 import { theme } from '@/config';
-import { Grid } from '@mui/material';
+import { Grid, Zoom } from '@mui/material';
 
 type Params = {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ type Params = {
 
 export function CardLogo(params: Params) {
   return (
-    <div>
+    <>
       <div
         style={{
           ...(params?.card?.height && { height: params.card.height }),
@@ -23,19 +23,21 @@ export function CardLogo(params: Params) {
         }}
       >
         <Grid container style={{ height: '20%' }} justifyContent="center">
-          <img
-            src="images/logo-aurorix-16-pixel-art.png"
-            alt="logo aurorix"
-            style={{
-              marginTop: '-10vh',
-              height: '22vh',
-            }}
-          />
+          <Zoom in={true}>
+            <img
+              src="images/logo-aurorix-16-pixel-art.png"
+              alt="logo aurorix"
+              style={{
+                marginTop: '-10vh',
+                height: '22vh',
+              }}
+            />
+          </Zoom>
         </Grid>
         <Grid container style={{ height: '75%' }}>
           {params.children}
         </Grid>
       </div>
-    </div>
+    </>
   );
 }

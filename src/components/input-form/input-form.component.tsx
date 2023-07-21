@@ -1,4 +1,5 @@
 import { useStyles } from '@/components/input-form/input-form.styles';
+import { Fade } from '@mui/material';
 import { ChangeEventHandler, HTMLInputTypeAttribute } from 'react';
 
 type Params = {
@@ -28,7 +29,9 @@ export function InputForm(params: Params) {
         value={params?.value}
         className={classes.input}
       />
-      <div className={classes.error}>{params?.error || ''}</div>
+      <Fade in={!!params?.error || false}>
+        <div className={classes.error}>{params?.error || ''}</div>
+      </Fade>
     </div>
   );
 }
