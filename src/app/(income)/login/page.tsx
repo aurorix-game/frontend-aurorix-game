@@ -8,7 +8,7 @@ import {
   Link,
   Metadata,
 } from '@/components';
-import { theme } from '@/config';
+import { Color, theme } from '@/config';
 import { Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -16,6 +16,7 @@ import * as Yup from 'yup';
 type FormData = {
   email: string;
   password: string;
+  remember: boolean;
 };
 
 const schema = Yup.object().shape({
@@ -87,18 +88,15 @@ export default function Login() {
                   <Button
                     label="login"
                     type="submit"
+                    font={{ size: '3vh' }}
+                    button={{ color: Color.redNeon, height: '45%' }}
                     // loading={{ status: true, size: 20 }}
-                    buttonStyle={{ fontSize: '3vh', height: '45%' }}
                   />
                 </Grid>
               </form>
             </Grid>
             <Grid container justifyContent="center">
-              <Link
-                path="reset-password"
-                label="Reset password"
-                // color={Color.blueOcean}
-              />
+              <Link path="/reset-password" label="Reset password" />
             </Grid>
           </Grid>
         </CardLogo>

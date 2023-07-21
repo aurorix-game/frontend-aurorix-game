@@ -1,21 +1,12 @@
-import { Color, theme } from '@/config';
 import { Link as LinkMUI } from '@mui/material';
+import { useStyles } from './link.styles';
+import { ParamsLink } from './link.type';
 
-type Params = {
-  path: string;
-  label: string;
-  color?: Color;
-};
+export function Link(params: ParamsLink) {
+  const classes = useStyles(params);
 
-export function Link(params: Params) {
   return (
-    <LinkMUI
-      href={params.path}
-      style={{
-        fontFamily: theme.fonts.PixelOperatorSC,
-        color: params.color ? theme.colors[params.color].original.hex : 'white',
-      }}
-    >
+    <LinkMUI href={params.path} className={classes.link}>
       {params.label}
     </LinkMUI>
   );

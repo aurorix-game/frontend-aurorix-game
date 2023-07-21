@@ -1,3 +1,4 @@
+import { Color } from '@/config';
 import { MouseEventHandler } from 'react';
 
 export type ParamsButton = {
@@ -8,8 +9,12 @@ export type ParamsButton = {
     status: boolean;
     size: number;
   };
-  buttonStyle?: {
-    fontSize?: string;
+  font: {
+    size: string;
+    color?: Color;
+  };
+  button: {
+    color: Color;
     width?: string;
     height?: string;
   };
