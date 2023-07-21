@@ -7,8 +7,11 @@ export const theme = createTheme({
       original: {
         hex: '#00DFA2',
       },
+      dark: {
+        hex: '#009c71',
+      },
     },
-    orangeRed: {
+    [Color.orangeRed]: {
       original: {
         hex: '#DF5D50',
       },
@@ -17,7 +20,7 @@ export const theme = createTheme({
         rgba: 'rgba(176, 65, 54)',
       },
     },
-    redNeon: {
+    [Color.redNeon]: {
       original: {
         hex: '#FF0060',
       },
@@ -25,14 +28,20 @@ export const theme = createTheme({
         hex: '#a6003e',
       },
     },
-    orangeYellow: {
+    [Color.orangeYellow]: {
       original: {
         hex: '#FBE19D',
       },
+      dark: {
+        hex: '#ac7f07',
+      },
     },
-    redOrangePastel: {
+    [Color.redOrangePastel]: {
       original: {
         hex: '#FFC3AB',
+      },
+      dark: {
+        hex: '#ff956b',
       },
     },
     [Color.purpleDark]: {
@@ -43,14 +52,20 @@ export const theme = createTheme({
         hex: '#301432',
       },
     },
-    blueOcean: {
+    [Color.blueOcean]: {
       original: {
         hex: '#33BBFF',
       },
+      dark: {
+        hex: '#008fd6',
+      },
     },
-    tealishBlue: {
+    [Color.tealishBlue]: {
       original: {
         hex: '#7086FA',
+      },
+      dark: {
+        hex: '#3c5af8',
       },
     },
   },
