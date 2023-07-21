@@ -1,4 +1,4 @@
-import { Color } from '@/config';
+import { Color } from '@/interfaces';
 import { MouseEventHandler } from 'react';
 
 export type ParamsButton = {

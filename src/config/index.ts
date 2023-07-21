@@ -1,2 +1,2 @@
-export { Color } from './theme/color.enum';
-export { theme } from './theme/theme';
+export * from './metadata/metadata.config';
+export * from './theme/theme.config';

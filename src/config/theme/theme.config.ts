@@ -1,5 +1,5 @@
+import { Color } from '@/interfaces';
 import { createTheme } from '@mui/material';
-import { Color } from './color.enum';
 
 export const theme = createTheme({
   colors: {

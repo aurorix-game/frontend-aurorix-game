@@ -1,7 +1,8 @@
 'use client';
 
 import { Button, CardLogo, InputForm, Metadata } from '@/components';
-import { Color } from '@/config';
+import { metadata } from '@/config';
+import { Color, MetadataId } from '@/interfaces';
 import { Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
@@ -49,7 +50,7 @@ export default function Register() {
   }
 
   return (
-    <Metadata subTitle="Register">
+    <Metadata id={MetadataId.register}>
       <Grid
         container
         alignItems="center"
@@ -123,7 +124,7 @@ export default function Register() {
             type="button"
             font={{ size: '2vh' }}
             button={{ color: Color.redNeon, height: '80%' }}
-            onClick={() => router.push('/login')}
+            onClick={() => router.push(metadata[MetadataId.login].path)}
           />
         </Grid>
       </Grid>

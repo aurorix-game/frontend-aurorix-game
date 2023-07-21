@@ -8,7 +8,8 @@ import {
   Link,
   Metadata,
 } from '@/components';
-import { Color, theme } from '@/config';
+import { metadata, theme } from '@/config';
+import { Color, MetadataId } from '@/interfaces';
 import { Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
@@ -45,7 +46,7 @@ export default function Login() {
   }
 
   return (
-    <Metadata subTitle="Login">
+    <Metadata id={MetadataId.login}>
       <Grid
         container
         alignItems="center"
@@ -101,7 +102,10 @@ export default function Login() {
                 </form>
               </Grid>
               <Grid container justifyContent="center">
-                <Link path="/reset-password" label="Reset password" />
+                <Link
+                  path={metadata[MetadataId.resetPassword].path}
+                  label="Reset password"
+                />
               </Grid>
             </Grid>
           </CardLogo>
@@ -113,7 +117,7 @@ export default function Login() {
             type="button"
             font={{ size: '2vh' }}
             button={{ color: Color.blueOcean, height: '80%' }}
-            onClick={() => router.push('/register')}
+            onClick={() => router.push(metadata[MetadataId.register].path)}
           />
         </Grid>
       </Grid>
