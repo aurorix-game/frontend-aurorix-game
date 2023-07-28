@@ -8,11 +8,14 @@ import {
   Link,
   Metadata,
 } from '@/components';
-import { metadata, theme } from '@/config';
+import { AppDispatch, metadata, theme, useAppSelector } from '@/config';
 import { Color, MetadataId } from '@/interfaces';
+import { login, me } from '@/state/auth';
 import { Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 
 type FormData = {
@@ -31,6 +34,9 @@ const schema = Yup.object().shape({
 
 export default function Login() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch<AppDispatch>();
+  const { isAuth } = useAppSelector((state) => state.auth);
 
   const formik = useFormik({
     initialValues: { email: '', password: '', remember: false },
@@ -39,11 +45,24 @@ export default function Login() {
     onSubmit: handleSubmit,
   });
 
-  function handleSubmit(values: FormData) {
+  async function handleSubmit(values: FormData) {
     if (formik.isValid) {
-      console.log(values);
+      setLoading(true);
+      const { email, password } = values;
+      dispatch(login({ email, password }));
     }
   }
+
+  useEffect(() => {
+    if (isAuth) {
+      dispatch(me());
+
+      setTimeout(() => {
+        setLoading(false);
+        // TODO: send another page
+      }, 1000);
+    }
+  }, [isAuth]);
 
   return (
     <Metadata id={MetadataId.login} noSSR>
@@ -96,7 +115,7 @@ export default function Login() {
                       type="submit"
                       font={{ size: '3vh' }}
                       button={{ color: Color.redNeon, height: '45%' }}
-                      // loading={{ status: true, size: 20 }}
+                      loading={{ status: loading, size: 20 }}
                     />
                   </Grid>
                 </form>

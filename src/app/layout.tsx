@@ -1,4 +1,5 @@
 import ThemeRegistry from '@/config/theme/theme-register';
+import { ReduxProvider } from '@/providers/redux.provider';
 import '@/styles/fonts.css';
 import '@/styles/global.css';
 
@@ -20,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeRegistry options={{ key: 'mui' }}>{children}</ThemeRegistry>
+        <ReduxProvider>
+          <ThemeRegistry options={{ key: 'mui' }}>{children}</ThemeRegistry>
+        </ReduxProvider>
       </body>
     </html>
   );
