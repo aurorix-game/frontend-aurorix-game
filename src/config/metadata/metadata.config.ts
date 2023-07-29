@@ -17,4 +17,12 @@ export const metadata: MetadataGroup = {
     subTitle: 'Reset password',
     path: '/reset-password',
   },
+  [MetadataId.chooseCharacter]: {
+    subTitle: 'Choose Character',
+    path: '/choose/character',
+  },
+  [MetadataId.chooseMopy]: {
+    subTitle: 'Choose Mopy',
+    path: '/choose/mopy',
+  },
 };

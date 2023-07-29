@@ -8,13 +8,13 @@ import {
   Link,
   Metadata,
 } from '@/components';
-import { AppDispatch, metadata, theme, useAppSelector } from '@/config';
+import { AppDispatch, metadata, theme } from '@/config';
 import { Color, MetadataId } from '@/interfaces';
-import { login, me } from '@/state/auth';
+import { login } from '@/state/auth';
 import { Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 
@@ -36,7 +36,6 @@ export default function Login() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
-  const { isAuth } = useAppSelector((state) => state.auth);
 
   const formik = useFormik({
     initialValues: { email: '', password: '', remember: false },
@@ -50,19 +49,12 @@ export default function Login() {
       setLoading(true);
       const { email, password } = values;
       dispatch(login({ email, password }));
-    }
-  }
-
-  useEffect(() => {
-    if (isAuth) {
-      dispatch(me());
 
       setTimeout(() => {
         setLoading(false);
-        // TODO: send another page
       }, 1000);
     }
-  }, [isAuth]);
+  }
 
   return (
     <Metadata id={MetadataId.login} noSSR>

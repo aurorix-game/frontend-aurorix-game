@@ -8,6 +8,8 @@ export enum MetadataId {
   login = 'login',
   register = 'register',
   resetPassword = 'register-password',
+  chooseCharacter = 'choose-character',
+  chooseMopy = 'choose-mopy',
 }
 
 export type MetadataGroup = {
@@ -15,4 +17,6 @@ export type MetadataGroup = {
   [MetadataId.login]: IMetadata;
   [MetadataId.register]: IMetadata;
   [MetadataId.resetPassword]: IMetadata;
+  [MetadataId.chooseCharacter]: IMetadata;
+  [MetadataId.chooseMopy]: IMetadata;
 };

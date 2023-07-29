@@ -1,6 +1,7 @@
 type Return = {
   token: () => string | null;
   setToken: (token: string) => void;
+  cleanToken: () => void;
 };
 
 export function useToken(): Return {
@@ -9,5 +10,7 @@ export function useToken(): Return {
   const setToken = (token: string) =>
     window.localStorage.setItem('token', token);
 
-  return { token, setToken };
+  const cleanToken = () => window.localStorage.removeItem('token');
+
+  return { token, setToken, cleanToken };
 }

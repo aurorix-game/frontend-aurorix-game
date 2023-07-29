@@ -1,4 +1,5 @@
 import ThemeRegistry from '@/config/theme/theme-register';
+import { AuthProvider } from '@/providers';
 import { ReduxProvider } from '@/providers/redux.provider';
 import '@/styles/fonts.css';
 import '@/styles/global.css';
@@ -22,7 +23,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ReduxProvider>
-          <ThemeRegistry options={{ key: 'mui' }}>{children}</ThemeRegistry>
+          <AuthProvider>
+            <ThemeRegistry options={{ key: 'mui' }}>{children}</ThemeRegistry>
+          </AuthProvider>
         </ReduxProvider>
       </body>
     </html>

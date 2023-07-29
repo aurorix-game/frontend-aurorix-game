@@ -1,4 +1,6 @@
-import { User } from '@/interfaces';
+import { metadata } from '@/config';
+import { useToken } from '@/hooks';
+import { MetadataId, User } from '@/interfaces';
 import { login, me } from '@/state/auth';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
@@ -36,6 +38,12 @@ const slide = createSlice({
     });
     builder.addCase(me.pending, (state: State) => {
       state.loading = true;
+    });
+    builder.addCase(me.rejected, (state: State) => {
+      state = initialState;
+      const { cleanToken } = useToken();
+      cleanToken();
+      window.location.pathname = metadata[MetadataId.login].path;
     });
     builder.addCase(
       me.fulfilled,
