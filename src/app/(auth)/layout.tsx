@@ -1,4 +1,4 @@
-import classes from '@/app/(income)/styles.module.css';
+import classes from '@/app/(auth)/styles.module.css';
 
 export default async function IncomeLayout({
   children,

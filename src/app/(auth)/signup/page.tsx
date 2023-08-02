@@ -62,7 +62,7 @@ export default function Register() {
   }
 
   return (
-    <Metadata id={MetadataId.register} noSSR>
+    <Metadata id={MetadataId.signup} noSSR>
       <Fade in={true}>
         <Grid
           container

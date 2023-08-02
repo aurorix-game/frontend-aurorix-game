@@ -128,7 +128,7 @@ export default function Login() {
             type="button"
             font={{ size: '2vh' }}
             button={{ color: Color.blueOcean, height: '80%' }}
-            onClick={() => router.push(metadata[MetadataId.register].path)}
+            onClick={() => router.push(metadata[MetadataId.signup].path)}
           />
         </Grid>
       </Grid>
