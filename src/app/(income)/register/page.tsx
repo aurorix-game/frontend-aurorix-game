@@ -1,11 +1,14 @@
 'use client';
 
 import { Button, CardLogo, InputForm, Metadata } from '@/components';
-import { metadata } from '@/config';
+import { AppDispatch, metadata } from '@/config';
 import { Color, MetadataId } from '@/interfaces';
+import { signup } from '@/state/auth';
 import { Fade, Grid } from '@mui/material';
 import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 
 type FormData = {
@@ -30,6 +33,8 @@ const schema = Yup.object().shape({
 
 export default function Register() {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch<AppDispatch>();
 
   const formik = useFormik({
     initialValues: {
@@ -45,7 +50,14 @@ export default function Register() {
 
   function handleSubmit(values: FormData) {
     if (formik.isValid) {
-      console.log(values);
+      setLoading(true);
+      const { nickname, email, password } = values;
+
+      dispatch(signup({ nickname, email, password }));
+
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     }
   }
 
@@ -111,7 +123,7 @@ export default function Register() {
                         type="submit"
                         font={{ size: '3vh' }}
                         button={{ color: Color.greenNeon, height: '45%' }}
-                        // loading={{ status: true, size: 20 }}
+                        loading={{ status: loading, size: 20 }}
                       />
                     </Grid>
                   </form>

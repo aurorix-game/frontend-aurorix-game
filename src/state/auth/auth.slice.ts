@@ -1,7 +1,7 @@
 import { metadata } from '@/config';
 import { useToken } from '@/hooks';
 import { MetadataId, User } from '@/interfaces';
-import { login, me } from '@/state/auth';
+import { login, me, signup } from '@/state/auth';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type State = {
@@ -30,6 +30,18 @@ const slide = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(signup.pending, (state: State) => {
+      state.loading = true;
+    });
+    builder.addCase(
+      signup.fulfilled,
+      (state: State, action: PayloadAction<User>) => {
+        state.isAuth = true;
+        state.loading = false;
+        state.user = action.payload;
+        window.location.pathname = metadata[MetadataId.login].path;
+      }
+    );
     builder.addCase(login.pending, (state: State) => {
       state.loading = true;
     });
