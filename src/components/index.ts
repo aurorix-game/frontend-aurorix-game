@@ -1,5 +1,6 @@
 export { Button } from './button/button.component';
 export { CardLogo } from './card-logo/card-logo.component';
+export { CharacterCard } from './character-card/character-card.component';
 export { Checkbox } from './checkbox/checkbox.component';
 export { Header } from './header/header.component';
 export { InputForm } from './input-form/input-form.component';

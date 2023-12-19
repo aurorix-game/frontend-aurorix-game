@@ -1,5 +1,6 @@
 import { Character } from '@/interfaces';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { listInitialCharacters } from './actions/list-initial-character';
 
 type State = {
   characters: Character.Model[];
@@ -20,7 +21,18 @@ const slice = createSlice({
       state.loading = action.payload;
     },
   },
-  extraReducers: (builder) => {},
+  extraReducers: (builder) => {
+    builder.addCase(listInitialCharacters.pending, (state: State) => {
+      state.loading = true;
+    });
+    builder.addCase(
+      listInitialCharacters.fulfilled,
+      (state: State, action: PayloadAction<Character.Model[]>) => {
+        state.loading = false;
+        state.characters = action.payload;
+      }
+    );
+  },
 });
 
 export const { setLoading } = slice.actions;

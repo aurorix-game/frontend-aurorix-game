@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import { Header, Metadata } from '@/components';
+import { CharacterCard, Header, Metadata } from '@/components';
 import { AppDispatch, useAppSelector } from '@/config';
 import { MetadataId } from '@/interfaces';
 import { listInitialCharacters } from '@/state/choose';
+import { Grid } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -20,6 +21,16 @@ export default function ChooseCharacter() {
   return (
     <Metadata id={MetadataId.chooseCharacter} noSSR>
       <Header title="Choose your initial character" />
+
+      <div style={{ margin: 50 }}>
+        <Grid container justifyContent="center" wrap="wrap">
+          {characters.map((char, i) => (
+            <Grid container item xs={5} key={i}>
+              <CharacterCard character={char} key={i} />
+            </Grid>
+          ))}
+        </Grid>
+      </div>
     </Metadata>
   );
 }
