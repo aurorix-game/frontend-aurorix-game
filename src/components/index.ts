@@ -7,3 +7,4 @@ export { InputForm } from './input-form/input-form.component';
 export { Link } from './link/link.component';
 export { Metadata } from './metadata/metadata.component';
 export { Title } from './title/title.component';
+export { CharacterAttribute } from './character-attribute/character-attribute.component';

@@ -1,15 +1,10 @@
 import { useAppSelector } from '@/config';
 import { Character } from '@/interfaces';
-import { Grid } from '@mui/material';
-import kaboom, {
-  GameObj,
-  KaboomCtx,
-  PosComp,
-  ScaleComp,
-  SpriteComp,
-} from 'kaboom';
+import kaboom, { GameObj, KaboomCtx, PosComp, ScaleComp, SpriteComp } from 'kaboom';
 import { useEffect } from 'react';
 import { useStyles } from './character-card.styles';
+import { Grid, LinearProgress } from '@mui/material';
+import { CharacterAttribute } from '../character-attribute/character-attribute.component';
 
 type CharGameObj = GameObj<SpriteComp | PosComp | ScaleComp>;
 
@@ -34,17 +29,11 @@ export function CharacterCard(params: Params) {
   }
 
   function addChar(k: KaboomCtx): CharGameObj {
-    return k.add([
-      k.sprite(params.character.alias_name),
-      k.pos(60, 50),
-      k.scale(10),
-    ]);
+    return k.add([k.sprite(params.character.alias_name), k.pos(60, 50), k.scale(10)]);
   }
 
   useEffect(() => {
-    const canvas: HTMLCanvasElement | null = document.querySelector(
-      `#${params.character.alias_name}`
-    );
+    const canvas: HTMLCanvasElement | null = document.querySelector(`#${params.character.alias_name}`);
 
     if (canvas && !loading) {
       const k = kaboom({ canvas, background: '#301432' });
@@ -57,12 +46,13 @@ export function CharacterCard(params: Params) {
   return (
     <Grid container style={{ margin: '2vh' }} justifyContent="center">
       <div className={classes.boxLeft}>
-        <canvas
-          id={params.character.alias_name}
-          style={{ width: '100%', height: '100%' }}
-        />
+        <canvas id={params.character.alias_name} style={{ width: '100%', height: '100%' }} />
       </div>
-      <div className={classes.boxRight}></div>
+      <div className={classes.boxRight}>
+        {params.character.attributes.map((attribute, i) => (
+          <CharacterAttribute attribute={attribute} key={i} />
+        ))}
+      </div>
     </Grid>
   );
 }
