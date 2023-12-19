@@ -21,7 +21,7 @@ const initialState: State = {
   loading: false,
 };
 
-const slide = createSlice({
+const slice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
@@ -68,6 +68,6 @@ const slide = createSlice({
   },
 });
 
-export const { setLoading } = slide.actions;
+export const { setLoading } = slice.actions;
 
-export const authReducer = slide.reducer;
+export const authReducer = slice.reducer;
