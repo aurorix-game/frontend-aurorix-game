@@ -1,0 +1,8 @@
+.main {
+  background-color: #301432;
+  background-image: url('../../../public/images/lines-pattern.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}

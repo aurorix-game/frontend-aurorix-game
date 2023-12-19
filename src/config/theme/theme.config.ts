@@ -45,6 +45,9 @@ export const theme = createTheme({
       },
     },
     [Color.purpleDark]: {
+      light: {
+        hex: '#672D6B',
+      },
       original: {
         hex: '#411B44',
       },

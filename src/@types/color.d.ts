@@ -6,7 +6,7 @@ export type ColorTypes = {
 };
 
 export type ColorOptions = {
-  light?: string;
+  light?: ColorTypes;
   original: ColorTypes;
   dark?: ColorTypes;
 };

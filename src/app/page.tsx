@@ -16,7 +16,7 @@ export default function Home() {
           >
             <img
               className={classes.logo}
-              src="images/logo-aurorix-16-pixel-art.png"
+              src="/images/logo-aurorix-16-pixel-art.png"
               alt="logo aurorix"
             />
           </Grid>
