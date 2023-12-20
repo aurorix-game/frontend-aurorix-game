@@ -1,9 +1,9 @@
 import { useAppSelector } from '@/config';
 import { Character } from '@/interfaces';
 import kaboom, { GameObj, KaboomCtx, PosComp, ScaleComp, SpriteComp } from 'kaboom';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useStyles } from './character-card.styles';
-import { Grid, LinearProgress } from '@mui/material';
+import { Grid } from '@mui/material';
 import { CharacterAttribute } from '../character-attribute/character-attribute.component';
 
 type CharGameObj = GameObj<SpriteComp | PosComp | ScaleComp>;
@@ -16,21 +16,27 @@ export function CharacterCard(params: Params) {
   const classes = useStyles();
   const { loading } = useAppSelector((state) => state.choose);
 
-  function loadSprint(k: KaboomCtx) {
-    const sprite = params.character.sprite;
+  const loadSprint = useCallback(
+    (k: KaboomCtx) => {
+      const sprite = params.character.sprite;
 
-    k.loadSprite(params.character.alias_name, sprite.url, {
-      sliceX: sprite.columns,
-      sliceY: sprite.rows,
-      anims: {
-        down: { from: 0, to: 2, loop: true, speed: 6 },
-      },
-    });
-  }
+      k.loadSprite(params.character.alias_name, sprite.url, {
+        sliceX: sprite.columns,
+        sliceY: sprite.rows,
+        anims: {
+          down: { from: 0, to: 2, loop: true, speed: 6 },
+        },
+      });
+    },
+    [params.character.alias_name, params.character.sprite]
+  );
 
-  function addChar(k: KaboomCtx): CharGameObj {
-    return k.add([k.sprite(params.character.alias_name), k.pos(60, 50), k.scale(10)]);
-  }
+  const addChar = useCallback(
+    (k: KaboomCtx): CharGameObj => {
+      return k.add([k.sprite(params.character.alias_name), k.pos(60, 50), k.scale(10)]);
+    },
+    [params.character.alias_name]
+  );
 
   useEffect(() => {
     const canvas: HTMLCanvasElement | null = document.querySelector(`#${params.character.alias_name}`);
@@ -41,7 +47,7 @@ export function CharacterCard(params: Params) {
       const char = addChar(k);
       if (char) char.play('down');
     }
-  }, [loading]);
+  }, [addChar, loadSprint, loading, params.character.alias_name]);
 
   return (
     <Grid container style={{ margin: '2vh' }} justifyContent="center">
