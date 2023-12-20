@@ -3,8 +3,12 @@ import { makeStyles } from '@mui/styles';
 
 export const useStyles = () => {
   const styles = makeStyles((theme: Theme) => ({
+    icon: {
+      height: '90%',
+      width: '90%',
+    },
     attributeBox: {
-      margin: '1.5vh 0',
+      margin: '1vh 0',
     },
     label: {
       fontFamily: theme.fonts.PixelOperatorSC,
