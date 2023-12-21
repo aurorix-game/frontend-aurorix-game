@@ -20,8 +20,8 @@
   "editor.minimap.enabled": true,
   "editor.insertSpaces": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": false
+    "source.fixAll": "explicit",
+    "source.organizeImports": "never"
   },
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
