@@ -1,15 +1,10 @@
-import { Theme } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import { ParamsTitle } from './title.type';
+import styled from 'styled-components';
 
-export const useStyles = (params: ParamsTitle) => {
-  const styles = makeStyles((theme: Theme) => ({
-    title: {
-      fontFamily: theme.fonts.PixelOperatorHB,
-      color: theme.colors.orangeYellow.original.hex,
-      fontSize: params.size,
-    },
-  }));
+import { theme } from '@/config';
+import { Title } from './title.type';
 
-  return styles();
-};
+export const TitleStyled = styled.span<Title.Style>`
+  font-family: ${theme.fonts.PixelOperatorHB};
+  color: ${theme.colors.orangeYellow.original.hex};
+  font-size: ${({ size }) => size};
+`;

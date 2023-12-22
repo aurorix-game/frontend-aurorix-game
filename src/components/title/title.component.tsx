@@ -1,8 +1,6 @@
-import { useStyles } from './title.styles';
-import { ParamsTitle } from './title.type';
+import { TitleStyled } from './title.styles';
+import { Title } from './title.type';
 
-export function Title(params: ParamsTitle) {
-  const classes = useStyles(params);
-
-  return <span className={classes.title}>{params.label}</span>;
+export function Title(params: Title.Params) {
+  return <TitleStyled size={params.size}>{params.label}</TitleStyled>;
 }
