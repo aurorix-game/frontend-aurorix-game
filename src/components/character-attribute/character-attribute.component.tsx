@@ -1,6 +1,6 @@
-import { Character } from '@/interfaces';
 import { Grid } from '@mui/material';
 import { useStyles } from './character-attribute.styles';
+import { Character, CHARACTER_ATTRIBUTES_LABEL } from 'aurorix-core';
 
 type Params = {
   attribute: Character.Attribute;
@@ -16,11 +16,11 @@ export function CharacterAttribute(params: Params) {
   return (
     <Grid container justifyContent="space-evenly" alignItems="center" className={classes.attributeBox}>
       <Grid container item xs={2}>
-        <img src={attribute.style.icon} alt={attribute.label} className={classes.icon} />
+        <img src={attribute.style.icon} alt={attribute.type} className={classes.icon} />
       </Grid>
       <Grid container item xs={8}>
         <Grid>
-          <span className={classes.label}>{attribute.label}</span>
+          <span className={classes.label}>{CHARACTER_ATTRIBUTES_LABEL[attribute.type]}</span>
         </Grid>
         <Grid
           container
