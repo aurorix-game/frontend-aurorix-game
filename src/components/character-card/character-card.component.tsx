@@ -1,11 +1,12 @@
-import { useAppSelector } from '@/config';
+import { Button, CharacterAttribute } from '@/components';
+import { AppDispatch, useAppSelector } from '@/config';
 import { Color } from '@/interfaces';
+import { chooseCharacter } from '@/state/choose/actions';
 import { Grid } from '@mui/material';
-import { Character } from 'aurorix-core';
+import { Character, InitialCharacters } from 'aurorix-core';
 import kaboom, { GameObj, KaboomCtx, PosComp, ScaleComp, SpriteComp } from 'kaboom';
-import { useCallback, useEffect } from 'react';
-import { Button } from '../button/button.component';
-import { CharacterAttribute } from '../character-attribute/character-attribute.component';
+import { useCallback, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useStyles } from './character-card.styles';
 
 type CharGameObj = GameObj<SpriteComp | PosComp | ScaleComp>;
@@ -15,7 +16,9 @@ type Params = {
 };
 
 export function CharacterCard(params: Params) {
+  const dispatch = useDispatch<AppDispatch>();
   const classes = useStyles();
+  const [showConfirm, setShowConfirm] = useState<boolean>(false);
   const { loading } = useAppSelector((state) => state.choose);
 
   const loadSprint = useCallback(
@@ -53,9 +56,21 @@ export function CharacterCard(params: Params) {
     }
   }, [addChar, loadSprint, loading, params.character.alias_name]);
 
+  function closeConfirm() {
+    setTimeout(() => {
+      setShowConfirm(false);
+    }, 700);
+  }
+
   return (
-    <Grid container justifyContent="center" className={classes.grid}>
-      <Grid container item justifyContent="center">
+    <Grid
+      container
+      justifyContent="center"
+      className={classes.grid}
+      onClick={() => setShowConfirm(true)}
+      onMouseLeave={closeConfirm}
+    >
+      <Grid container item justifyContent="center" className={classes.gridCharacter}>
         <div className={classes.boxLeft}>
           <canvas
             id={params.character.alias_name}
@@ -69,13 +84,18 @@ export function CharacterCard(params: Params) {
           ))}
         </div>
       </Grid>
-      <Grid container item justifyContent="center" style={{ marginTop: '1vh' }}>
-        <Button
-          label="confirm"
-          type="submit"
-          font={{ size: '2.5vh' }}
-          button={{ color: Color.greenNeon, height: '65%' }}
-        />
+      <Grid container item justifyContent="center" className={classes.gridConfirm}>
+        {showConfirm && (
+          <Button
+            label="confirm"
+            type="submit"
+            font={{ size: '2.5vh' }}
+            button={{ color: Color.greenNeon, height: '65%' }}
+            onClick={() =>
+              dispatch(chooseCharacter(params.character.alias_name as InitialCharacters))
+            }
+          />
+        )}
       </Grid>
     </Grid>
   );

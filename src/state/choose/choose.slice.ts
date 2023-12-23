@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Character } from 'aurorix-core';
-import { listInitialCharacters } from './actions/list-initial-character';
+import { chooseCharacter, listInitialCharacters } from './actions';
 
 type State = {
   characters: Character.Model[];
@@ -32,6 +32,12 @@ const slice = createSlice({
         state.characters = action.payload;
       }
     );
+    builder.addCase(chooseCharacter.pending, (state: State) => {
+      state.loading = true;
+    });
+    builder.addCase(chooseCharacter.fulfilled, (state: State) => {
+      state.loading = false;
+    });
   },
 });
 

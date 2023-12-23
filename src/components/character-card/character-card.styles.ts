@@ -5,9 +5,16 @@ export const useStyles = () => {
   const styles = makeStyles((theme: Theme) => ({
     grid: {
       margin: '1vh',
+    },
+    gridCharacter: {
       '&:hover': {
         cursor: 'pointer',
       },
+    },
+    gridConfirm: {
+      transition: 'ease-out 300ms',
+      marginTop: '1vh',
+      height: '5vh',
     },
     boxLeft: {
       width: '30vh',
