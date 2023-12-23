@@ -1,5 +1,5 @@
-import { Character } from '@/interfaces';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { Character } from 'aurorix-core';
 import { listInitialCharacters } from './actions/list-initial-character';
 
 type State = {

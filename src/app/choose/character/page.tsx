@@ -22,7 +22,7 @@ export default function ChooseCharacter() {
     <Metadata id={MetadataId.chooseCharacter} noSSR>
       <Header title="Choose your initial character" />
 
-      <div style={{ margin: 50 }}>
+      <div style={{ margin: '3vh' }}>
         <Grid container justifyContent="center" wrap="wrap">
           {characters.map((char, i) => (
             <Grid container item xs={5} key={i}>
