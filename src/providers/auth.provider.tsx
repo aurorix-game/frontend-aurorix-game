@@ -17,6 +17,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const token = useToken().token();
+    if (!token && !isAuth) router.push(metadata[MetadataId.login].path);
     if (token && !isAuth) dispatch(me());
   }, []);
 
