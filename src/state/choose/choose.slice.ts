@@ -1,9 +1,14 @@
+import { getUserCharacters } from '@/state/character/actions';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Character } from 'aurorix-core';
+import { Character, UserCharacter } from 'aurorix-core';
 import { chooseCharacter, listInitialCharacters } from './actions';
 
 type State = {
   characters: Character.Model[];
+  chooses: {
+    have_character: boolean;
+    have_mopy: boolean;
+  };
   loading: boolean;
   error?: string;
 };
@@ -11,6 +16,10 @@ type State = {
 const initialState: State = {
   characters: [],
   loading: false,
+  chooses: {
+    have_character: false,
+    have_mopy: false,
+  },
 };
 
 const slice = createSlice({
@@ -35,9 +44,20 @@ const slice = createSlice({
     builder.addCase(chooseCharacter.pending, (state: State) => {
       state.loading = true;
     });
-    builder.addCase(chooseCharacter.fulfilled, (state: State) => {
-      state.loading = false;
-    });
+    builder.addCase(
+      chooseCharacter.fulfilled,
+      (state: State, action: PayloadAction<UserCharacter>) => {
+        state.loading = false;
+        state.chooses.have_character = action.payload.character ? true : false;
+      }
+    );
+    builder.addCase(
+      getUserCharacters.fulfilled,
+      (state: State, action: PayloadAction<UserCharacter[]>) => {
+        state.loading = false;
+        state.chooses.have_character = action.payload.length >= 1 ? true : false;
+      }
+    );
   },
 });
 
