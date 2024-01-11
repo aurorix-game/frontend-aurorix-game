@@ -79,7 +79,9 @@ export function CharacterCard(params: Params) {
           />
         </div>
         <div className={classes.boxRight}>
-          {params.character.attributes.map((attribute, i) => (
+          <CharacterAttribute attribute={params.character.att.mopy_capture} />
+          <CharacterAttribute attribute={params.character.att.expertise} />
+          {params.character.element_tunning.map((attribute, i) => (
             <CharacterAttribute attribute={attribute} key={i} />
           ))}
         </div>
