@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import { Header, Metadata } from '@/components';
+import { Header, Metadata, MopyCard } from '@/components';
 import { AppDispatch, useAppSelector } from '@/config';
 import { MetadataId } from '@/interfaces';
 import { listInitialMopys } from '@/state/choose/actions';
@@ -23,7 +23,13 @@ export default function ChooseMopy() {
       <Header title="Choose your initial mopy" />
 
       <div style={{ margin: '3vh' }}>
-        <Grid container justifyContent="center" wrap="wrap"></Grid>
+        <Grid container justifyContent="center" wrap="wrap">
+          {mopys.map((mopy, i) => (
+            <Grid container item xs={5} key={i}>
+              <MopyCard mopy={mopy} key={i} />
+            </Grid>
+          ))}
+        </Grid>
       </div>
     </Metadata>
   );

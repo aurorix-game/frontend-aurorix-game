@@ -1,10 +1,11 @@
 export { Button } from './button/button.component';
 export { CardLogo } from './card-logo/card-logo.component';
+export { CharacterAttribute } from './character-attribute/character-attribute.component';
 export { CharacterCard } from './character-card/character-card.component';
 export { Checkbox } from './checkbox/checkbox.component';
 export { Header } from './header/header.component';
 export { InputForm } from './input-form/input-form.component';
 export { Link } from './link/link.component';
 export { Metadata } from './metadata/metadata.component';
+export { MopyCard } from './mopy-card/mopy-card.component';
 export { Title } from './title/title.component';
-export { CharacterAttribute } from './character-attribute/character-attribute.component';
