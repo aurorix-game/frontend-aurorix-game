@@ -2,7 +2,7 @@ import { Button } from '@/components';
 import { AppDispatch, useAppSelector } from '@/config';
 import { Color } from '@/interfaces';
 import { Grid } from '@mui/material';
-import { Mopy } from 'aurorix-core';
+import { ICONS_ELEMENTS, Mopy } from 'aurorix-core';
 import kaboom, { GameObj, KaboomCtx, PosComp, ScaleComp, SpriteComp } from 'kaboom';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -72,9 +72,18 @@ export function MopyCard(params: Params) {
       <Grid container item justifyContent="center" className={classes.gridMopy}>
         <div className={classes.container}>
           <div className={classes.boxTop}>
-            <Grid container justifyContent="space-between">
+            <Grid container justifyContent="space-between" alignItems="center">
               <span className={classes.mopyLabel}>{params.mopy.alias_name}</span>
-              <span className={classes.mopyLevel}>Lv. {params.mopy.att.level.value}</span>
+              <div>
+                <Grid container alignItems="center">
+                  <span className={classes.mopyLevel}>Lv. {params.mopy.att.level.value}</span>
+                  <img
+                    src={`${ICONS_ELEMENTS[params.mopy.att.elements[0]].icon}`}
+                    alt="icon"
+                    style={{ width: '2vh', height: '2vh' }}
+                  />
+                </Grid>
+              </div>
             </Grid>
           </div>
           <div className={classes.boxLeft}>
@@ -84,7 +93,16 @@ export function MopyCard(params: Params) {
               className={classes.hover}
             />
           </div>
-          <div className={classes.boxRight}>ATT HERE</div>
+          <div className={classes.boxRight}>
+            <Grid container style={{ height: '100%' }}>
+              <Grid xs={6} style={{ height: '100%' }}>
+                A
+              </Grid>
+              <Grid xs={6} style={{ height: '100%' }}>
+                B
+              </Grid>
+            </Grid>
+          </div>
         </div>
       </Grid>
       <Grid container item justifyContent="center" className={classes.gridConfirm}>

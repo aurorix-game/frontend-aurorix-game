@@ -33,6 +33,7 @@ export const useStyles = () => {
       fontStyle: 'normal',
       fontWeight: 700,
       lineHeight: 'normal',
+      marginRight: '1vh',
     },
     container: {
       display: 'grid',
@@ -40,11 +41,10 @@ export const useStyles = () => {
       gridTemplateColumns: '1fr 1fr',
     },
     boxTop: {
-      width: '98.3%',
       height: '2',
-      marginBottom: '-0.8vh',
       backgroundColor: theme.colors.purpleDark.dark?.hex,
       border: `0.8vh solid ${theme.colors.tealishBlue.original?.hex}`,
+      borderBottom: '0vh',
       gridRow: '1 / span 1',
       gridColumn: '1 / span 2',
       padding: '0.8vh',
@@ -54,11 +54,11 @@ export const useStyles = () => {
       height: '25vh',
       backgroundColor: theme.colors.purpleDark.dark?.hex,
       border: `0.8vh solid ${theme.colors.tealishBlue.original?.hex}`,
+      borderRight: '0vh',
       gridRow: 2,
       gridColumn: 1,
     },
     boxRight: {
-      marginLeft: '-0.8vh',
       width: '25vh',
       height: '25vh',
       backgroundColor: theme.colors.purpleDark.dark?.hex,
