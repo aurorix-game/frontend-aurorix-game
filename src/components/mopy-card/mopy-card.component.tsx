@@ -1,9 +1,8 @@
 import { Button } from '@/components';
 import { AppDispatch, useAppSelector } from '@/config';
 import { Color } from '@/interfaces';
-import { chooseCharacter } from '@/state/choose/actions';
 import { Grid } from '@mui/material';
-import { InitialCharacters, Mopy } from 'aurorix-core';
+import { Mopy } from 'aurorix-core';
 import kaboom, { GameObj, KaboomCtx, PosComp, ScaleComp, SpriteComp } from 'kaboom';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -71,14 +70,22 @@ export function MopyCard(params: Params) {
       onMouseLeave={closeConfirm}
     >
       <Grid container item justifyContent="center" className={classes.gridMopy}>
-        <div className={classes.boxLeft}>
-          <canvas
-            id={`canvas-${params.mopy.alias_name}`}
-            style={{ width: '100%', height: '100%' }}
-            className={classes.hover}
-          />
+        <div className={classes.container}>
+          <div className={classes.boxTop}>
+            <Grid container justifyContent="space-between">
+              <span className={classes.mopyLabel}>{params.mopy.alias_name}</span>
+              <span className={classes.mopyLevel}>Lv. {params.mopy.att.level.value}</span>
+            </Grid>
+          </div>
+          <div className={classes.boxLeft}>
+            <canvas
+              id={`canvas-${params.mopy.alias_name}`}
+              style={{ width: '100%', height: '100%' }}
+              className={classes.hover}
+            />
+          </div>
+          <div className={classes.boxRight}>ATT HERE</div>
         </div>
-        <div className={classes.boxRight}>ATT HERE</div>
       </Grid>
       <Grid container item justifyContent="center" className={classes.gridConfirm}>
         {showConfirm && (
@@ -87,7 +94,7 @@ export function MopyCard(params: Params) {
             type="submit"
             font={{ size: '2.5vh' }}
             button={{ color: Color.greenNeon, height: '65%' }}
-            onClick={() => dispatch(chooseCharacter(params.mopy.alias_name as InitialCharacters))}
+            // onClick={() => dispatch(chooseCharacter(params.mopy.alias_name as InitialCharacters))}
           />
         )}
       </Grid>

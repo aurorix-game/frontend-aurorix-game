@@ -25,7 +25,7 @@ export default function ChooseMopy() {
       <div style={{ margin: '3vh' }}>
         <Grid container justifyContent="center" wrap="wrap">
           {mopys.map((mopy, i) => (
-            <Grid container item xs={5} key={i}>
+            <Grid container item xs={12} md={7} lg={5} key={i}>
               <MopyCard mopy={mopy} key={i} />
             </Grid>
           ))}
