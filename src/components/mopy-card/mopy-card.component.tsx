@@ -95,11 +95,39 @@ export function MopyCard(params: Params) {
           </div>
           <div className={classes.boxRight}>
             <Grid container style={{ height: '100%' }}>
-              <Grid xs={6} style={{ height: '100%' }}>
-                A
+              <Grid
+                container
+                item
+                className={classes.mopyAttArea}
+                xs={6}
+                alignContent="space-around"
+              >
+                <span className={classes.mopyAttLabel}>HP</span>
+                <span className={classes.mopyAttLabel}>ATTACK</span>
+                <span className={classes.mopyAttLabel}>DEFENSE</span>
+                <span className={classes.mopyAttLabel}>ELEMENT</span>
+                <span className={classes.mopyAttLabel}>EXP</span>
               </Grid>
-              <Grid xs={6} style={{ height: '100%' }}>
-                B
+              <Grid container item style={{ height: '100%' }} xs={6} alignContent="space-around">
+                <span className={classes.mopyAttLabel}>
+                  <div className={classes.hp}>
+                    {params.mopy.att.health.current_value} / {params.mopy.att.health.max_value}
+                  </div>
+                </span>
+                <span className={classes.mopyAttLabel}>
+                  <div className={classes.attack}>{params.mopy.att.attack.value}</div>
+                </span>
+                <span className={classes.mopyAttLabel}>
+                  <div className={classes.defense}>{params.mopy.att.defense.value}</div>
+                </span>
+                <span className={classes.mopyAttLabel}>
+                  <div className={classes.element}>{params.mopy.att.elements[0]}</div>
+                </span>
+                <span className={classes.mopyAttLabel}>
+                  <div className={classes.exp}>
+                    {params.mopy.att.xp.current_value} / {params.mopy.att.xp.max_value}
+                  </div>
+                </span>
               </Grid>
             </Grid>
           </div>
