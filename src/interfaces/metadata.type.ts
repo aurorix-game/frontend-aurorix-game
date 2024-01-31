@@ -11,6 +11,7 @@ export enum MetadataId {
   resetPassword = 'reset-password',
   chooseCharacter = 'choose-character',
   chooseMopy = 'choose-mopy',
+  hubCenter = 'hub-center',
 }
 
 export type MetadataGroup = {
@@ -20,4 +21,5 @@ export type MetadataGroup = {
   [MetadataId.resetPassword]: IMetadata;
   [MetadataId.chooseCharacter]: IMetadata;
   [MetadataId.chooseMopy]: IMetadata;
+  [MetadataId.hubCenter]: IMetadata;
 };

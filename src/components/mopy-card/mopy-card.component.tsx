@@ -1,8 +1,9 @@
 import { Button } from '@/components';
 import { AppDispatch, useAppSelector } from '@/config';
 import { Color } from '@/interfaces';
+import { chooseMopy } from '@/state/choose/actions';
 import { Grid } from '@mui/material';
-import { ICONS_ELEMENTS, Mopy } from 'aurorix-core';
+import { ICONS_ELEMENTS, InitialMopys, Mopy } from 'aurorix-core';
 import kaboom, { GameObj, KaboomCtx, PosComp, ScaleComp, SpriteComp } from 'kaboom';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -140,7 +141,7 @@ export function MopyCard(params: Params) {
             type="submit"
             font={{ size: '2.5vh' }}
             button={{ color: Color.greenNeon, height: '65%' }}
-            // onClick={() => dispatch(chooseCharacter(params.mopy.alias_name as InitialCharacters))}
+            onClick={() => dispatch(chooseMopy(params.mopy.alias_name as InitialMopys))}
           />
         )}
       </Grid>

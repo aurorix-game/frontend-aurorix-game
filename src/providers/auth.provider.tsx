@@ -6,6 +6,7 @@ import { useToken } from '@/hooks';
 import { MetadataId } from '@/interfaces';
 import { me } from '@/state/auth';
 import { getUserCharacters } from '@/state/character/actions';
+import { getUserMopy } from '@/state/mopy/actions';
 import { useRouter } from 'next/navigation';
 import { ReactNode, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -27,16 +28,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const token = useToken().token();
 
     if (isAuth && token) {
-      if (!have_character) dispatch(getUserCharacters());
+      if (!have_character && !have_mopy) {
+        dispatch(getUserCharacters());
+        dispatch(getUserMopy());
+      }
+
       if (!have_character) router.push(metadata[MetadataId.chooseCharacter].path);
 
-      if (!have_mopy) {
-        // TODO: Get user mopys
-      }
       if (have_character && !have_mopy) router.push(metadata[MetadataId.chooseMopy].path);
+      if (!have_character && have_mopy) router.push(metadata[MetadataId.chooseCharacter].path);
 
       if (have_character && have_mopy) {
-        // TODO: Redirect home select maps
+        router.push(metadata[MetadataId.hubCenter].path);
       }
     }
   }, [isAuth, have_character, have_mopy]);

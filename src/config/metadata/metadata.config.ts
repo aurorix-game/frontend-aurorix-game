@@ -31,4 +31,9 @@ export const metadata: MetadataGroup = {
     path: '/choose/mopy',
     public: false,
   },
+  [MetadataId.hubCenter]: {
+    subTitle: 'Hub Center',
+    path: '/hub-center',
+    public: false,
+  },
 };
